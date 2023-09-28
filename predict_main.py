@@ -69,6 +69,10 @@ else:
     #  join_eboxes_alarms_readings_meteo
     meteo = pd.read_csv("default_meteo/default_meteo.csv")
 
+    # Delete the column "Unnamed: 0" in case it is present in the columns:
+    if "Unnamed: 0" in meteo.columns:
+        meteo.drop("Unnamed: 0", axis=1, inplace=True)
+
 # Almost the same preprocessing as we do on preparing the data for training with some minor changes.
 # For example in the alarms preprocessing functions we have to specify the argument for_predicting
 
